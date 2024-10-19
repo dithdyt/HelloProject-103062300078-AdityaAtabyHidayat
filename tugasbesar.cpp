@@ -6,7 +6,24 @@ struct Node {
   int data;
   Node* next;
 };
+// Error sampai sini
 
+// Fungsi untuk menemukan node tengah kedua dalam linked list
+int findSecondMiddleNode(Node* head) {
+  if (head == nullptr || head->next == nullptr) {
+    return -1; // Linked list kosong atau hanya memiliki satu node
+  }
+
+  Node* slow = head;
+  Node* fast = head;
+
+  // Temukan node tengah
+  while (fast != nullptr && fast->next != nullptr) {
+    slow = slow->next;
+    fast = fast->next->next;
+  }
+
+  // Jika jumlah node genap, slow sudah menunjuk ke node tengah pertama
 // Fungsi untuk membuat node baru
 Node* newNode(int data) {
   Node* node = new Node;
@@ -47,25 +64,6 @@ Node* reverseLinkedList(Node* head) {
     return prev;
 }
 
-// Error sampai sini
-
-// Fungsi untuk menemukan node tengah kedua dalam linked list
-int findSecondMiddleNode(Node* head) {
-  if (head == nullptr || head->next == nullptr) {
-    return -1; // Linked list kosong atau hanya memiliki satu node
-  }
-
-  Node* slow = head;
-  Node* fast = head;
-
-  // Temukan node tengah
-  while (fast != nullptr && fast->next != nullptr) {
-    slow = slow->next;
-    fast = fast->next->next;
-  }
-
-  // Jika jumlah node genap, slow sudah menunjuk ke node tengah pertama
-  // Jika jumlah node ganjil, pindahkan slow ke node berikutnya untuk menunjuk ke node tengah pertama
 
   return slow->data;
 }
