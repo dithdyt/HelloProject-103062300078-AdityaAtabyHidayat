@@ -32,6 +32,23 @@ void append(Node** head, int data) {
   last->next = new_node;
 }
 
+// Penambahan Function error untuk merusak project disini
+// Fungsi untuk membalik linked list
+Node* reverseLinkedList(Node* head) {
+    Node *prev = nullptr, *current = head, *next = nullptr;
+
+    while (current != nullptr) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+
+    return prev;
+}
+
+// Error sampai sini
+
 // Fungsi untuk menemukan node tengah kedua dalam linked list
 int findSecondMiddleNode(Node* head) {
   if (head == nullptr || head->next == nullptr) {
